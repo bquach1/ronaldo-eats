@@ -87,7 +87,7 @@ export default function FeedScreen() {
       if (userLocation) {
         sorted = sorted.map(r => ({
           ...r,
-          distance: RecommendationService['calculateDistance'](
+          distance: RecommendationService.calculateDistance(
             userLocation.latitude,
             userLocation.longitude,
             r.latitude,

@@ -4,7 +4,7 @@ export class RecommendationService {
   /**
    * Calculate distance between two coordinates using Haversine formula
    */
-  private static calculateDistance(
+  static calculateDistance(
     lat1: number,
     lon1: number,
     lat2: number,

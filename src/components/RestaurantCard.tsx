@@ -33,10 +33,12 @@ export default function RestaurantCard({
   const [showDetails, setShowDetails] = useState(false);
   const [showRating, setShowRating] = useState(false);
   const [showLists, setShowLists] = useState(false);
+  const [hoverRating, setHoverRating] = useState<number>(0);
 
   const handleRate = (rating: number) => {
     onRate?.(rating);
     setShowRating(false);
+    setHoverRating(0);
   };
 
   const getPriceString = (level: number) => {
@@ -160,10 +162,11 @@ export default function RestaurantCard({
                 <TouchableOpacity
                   key={star}
                   onPress={() => handleRate(star)}
+                  onPressIn={() => setHoverRating(star)}
                   style={styles.starButton}
                 >
                   <Ionicons
-                    name={star <= (userRating || 0) ? 'star' : 'star-outline'}
+                    name={star <= (hoverRating || userRating || 0) ? 'star' : 'star-outline'}
                     size={40}
                     color="#FFD700"
                   />
